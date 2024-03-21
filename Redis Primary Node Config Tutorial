@@ -1,0 +1,28 @@
+# primary node
+
+# Create a strong password here
+requirepass STRONG_PASSWORD_ABC
+
+# AUTH password of the primary instance in case this instance becomes a replica
+masterauth STRONG_PASSWORD_IJK
+
+# Enable AOF file persistence
+appendonly yes
+
+# Choose a name for the AOF file
+appendfilename "primary.aof"
+
+
+# -------------------------------------
+# run these commands
+# -------------------------------------
+# $ redis-cli
+# redis-cli>config set requirepass STRONG_PASSWORD_ABC
+# redis-cli>config set masterauth STRONG_PASSWORD_IJK
+# redis-cli>config set appendonly yes
+
+# ------
+# set these parameters in file /etc/redis/config
+# ------
+# appendonly yes
+# appendfilename "primary.aof"

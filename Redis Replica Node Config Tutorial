@@ -1,0 +1,21 @@
+# replica node
+
+# Port on which the replica should run
+# port 6380
+
+# Address of the primary instance
+replicaof 5.34.206.210 6379
+
+# AUTH password of the primary instance
+masterauth STRONG_PASSWORD_ABC
+
+# AUTH password for the replica instance
+requirepass STRONG_PASSWORD_XYZ
+
+# -------------------------------------
+# run these commands
+# -------------------------------------
+# $ redis-cli
+# redis-cli>replicaof 5.34.206.210 6379
+# redis-cli>config set masterauth STRONG_PASSWORD_ABC
+# redis-cli>config set requirepass STRONG_PASSWORD_XYZ
