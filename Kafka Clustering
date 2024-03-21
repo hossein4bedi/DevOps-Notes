@@ -1,0 +1,11 @@
+Clustering:
+0. Create a user named 'kafka'. Set a strong password for it. If you get error of type 'NoBrokersAvailable' it means the instance is not running.
+1. Run an instance on each node.
+2. Use KRaft. ZooKeeper is not what we need!
+3. Edit KRaft configuration file: 'config/kraft/server.properties':
+```
+controller.quorum.voters=1@PUBLIC_IP_OF_CURRENT_MACHINE:9093
+listeners=PLAINTEXT://:9092,CONTROLLER://:9093
+advertised.listeners=PLAINTEXT://PUBLIC_IP_OF_CURRENT_MACHINE:9092
+```
+4. use this command to run the Kafka instance: kafka-server-start.sh -daemon kraft/server.properties
