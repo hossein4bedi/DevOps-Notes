@@ -1,0 +1,15 @@
+This page explains how to create a full backup and restore Ubuntu using tar.
+Notice that in options[chavzP], P should be Uppercase which means tar will use absolute paths. If you use lowercase p, it will result in wrong restoration of files.
+
+tar -chavzP backup.tar.gz \
+--exclude=/backup.tar.gz \
+--exclude=/proc \
+--exclude=/tmp \
+--exclude=/mnt \
+--exclude=/dev \
+--exclude=/sys \
+--exclude=/run \ 
+--exclude=/media \ 
+--exclude=/var/log \
+
+To send the backup file to other machines you can use scp(Secure Copy Protocol).
