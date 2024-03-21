@@ -1,0 +1,4 @@
+This page explains how to create a cluster of redis instances in which some of the nodes are primary and others are replica(as far as I remember, readonly).
+
+Redis uses TCP so you need to open [redis port/tcp] in your firewall:
+sudo ufw allow from ReadonlyReplicaIP proto tcp port redis-port
