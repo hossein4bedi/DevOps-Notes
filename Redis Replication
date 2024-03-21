@@ -2,3 +2,8 @@ This page explains how to create a cluster of redis instances in which some of t
 
 Redis uses TCP so you need to open [redis port/tcp] in your firewall:
 sudo ufw allow from ReadonlyReplicaIP proto tcp port redis-port
+
+
+Use the following files for more details:
+Redis Primary Node Config Tutorial
+Redis Replica Node Config Tutorial
