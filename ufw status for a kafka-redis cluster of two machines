@@ -14,6 +14,7 @@ Status: active
 [ 6] 465                        ALLOW IN    Anywhere                  
 [ 7] Anywhere                   ALLOW IN    REPLICA_IP redisport/tcp      
 [ 8] kafkaport                  ALLOW IN    REPLICA_IP               
+[NEW]kafkaport                  ALLOW IN    PRIMARY_IP               
 [ 9] Nginx Full (v6)            ALLOW IN    Anywhere (v6)             
 [10] OpenSSH (v6)               ALLOW IN    Anywhere (v6)             
 [11] Nginx HTTP (v6)            DENY IN     Anywhere (v6)             
