@@ -1,0 +1,46 @@
+---------------------------------------
+=====PRIMARY MACHINE===================
+---------------------------------------
+$ sudo ufw status numbered 
+Status: active
+
+     To                         Action      From
+     --                         ------      ----
+[ 1] Nginx Full                 ALLOW IN    Anywhere                  
+[ 2] OpenSSH                    ALLOW IN    Anywhere                  
+[ 3] Nginx HTTP                 DENY IN     Anywhere                  
+[ 4] portin/udp                 DENY IN     Anywhere                  
+[ 5] portout/udp                DENY IN     Anywhere                  
+[ 6] 465                        ALLOW IN    Anywhere                  
+[ 7] Anywhere                   ALLOW IN    REPLICA_IP redisport/tcp      
+[ 8] kafkaport                  ALLOW IN    REPLICA_IP               
+[ 9] Nginx Full (v6)            ALLOW IN    Anywhere (v6)             
+[10] OpenSSH (v6)               ALLOW IN    Anywhere (v6)             
+[11] Nginx HTTP (v6)            DENY IN     Anywhere (v6)             
+[12] portin/udp (v6)            DENY IN     Anywhere (v6)             
+[13] portout/udp (v6)           DENY IN     Anywhere (v6)             
+[14] 465 (v6)                   ALLOW IN    Anywhere (v6) 
+
+--------------------------------------
+=====REPLICA MACHINE==================
+--------------------------------------
+$ sudo ufw status numbered 
+Status: active
+
+     To                         Action      From
+     --                         ------      ----
+[ 1] Nginx Full                 ALLOW IN    Anywhere                  
+[ 2] OpenSSH                    ALLOW IN    Anywhere                  
+[ 3] Nginx HTTP                 DENY IN     Anywhere                  
+[ 4] portin/udp                 ALLOW IN    Anywhere                  
+[ 5] portout/udp                ALLOW IN    Anywhere                  
+[ 6] 465                        ALLOW IN    Anywhere                  
+[ 7] Anywhere                   ALLOW IN    PRIMARY_IP redisport/tcp     
+[ 8] PRIMARY_IP kafkaport       ALLOW IN    Anywhere                  
+[ 9] Anywhere                   ALLOW IN    PRIMARY_IP kafkaport/tcp     
+[10] Nginx Full (v6)            ALLOW IN    Anywhere (v6)             
+[11] OpenSSH (v6)               ALLOW IN    Anywhere (v6)             
+[12] Nginx HTTP (v6)            DENY IN     Anywhere (v6)             
+[13] portin/udp (v6)            ALLOW IN    Anywhere (v6)             
+[14] portout/udp (v6)           ALLOW IN    Anywhere (v6)             
+[15] 465 (v6)                   ALLOW IN    Anywhere (v6)
